@@ -18,22 +18,31 @@
         <img src="" alt="logo">
     </header>
     <main>
-        <form>
-            <textarea name="note-creator" id="" cols="30" rows="10"></textarea>
-            <button id="btn-new-note">Add</button>
-        </form>
-
-        <div id="staging-area">
-
+        <div class="left-panel">
+            <form id="form-new-note">
+                <textarea id="note-creator" name="note-creator" id="" cols="30" rows="10" placeholder="New Note"></textarea>
+                <button id="btn-new-note">Add</button>
+            </form>
+    
+            <div id="staging-area">
+                <h1>Staging Area</h1>
+    
+            </div>
         </div>
 
         <div id="container-container">
             <div class="inner-container-container">
                 <div class="container">
-    
+                    <h1>Container Name</h1>
+                    <div class="note-container">
+
+                    </div>
                 </div>
             </div>
-            <button>Add Container</button>
+            <form id="form-new-container">
+                <input type="text" placeholder="New Container Name">
+                <button>Add Container</button>
+            </form>
         </div>
     </main>
 </body>
