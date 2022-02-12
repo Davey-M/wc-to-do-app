@@ -7,7 +7,7 @@ const pool = require('../modules/pool');
 router.get('/', (req, res) => {
     
     // get all the data from the server
-    const queryString = 'SELECT * FROM "notes"';
+    const queryString = 'SELECT * FROM "notes" ORDER BY "text" ASC';
 
     pool.query(queryString)
         .then(response => {
