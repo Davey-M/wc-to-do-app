@@ -17,4 +17,23 @@ router.get('/', (req, res) => {
         })
 })
 
+router.post('/', (req, res) => {
+
+    const queryString = `
+        INSERT INTO "containers" ("name")
+        VALUES ($1)
+    `
+
+    const queryOptions = [ req.body.name ];
+
+    pool.query(queryString, queryOptions)
+        .then(response => {
+            res.sendStatus(201);
+        })
+        .catch(err => {
+            console.error('Error sending data to containers table:', err);
+            res.sendStatus(500);
+        })
+})
+
 module.exports = router;
