@@ -4,6 +4,8 @@ $(main)
 function main() {
     // get container and get notes will always be run together
     getContainers();
+
+    $('#form-new-note').on('submit', addNote);
 }
 
 // GLOBAL VARIABLE DECLARATIONS ------------------------------------------------
