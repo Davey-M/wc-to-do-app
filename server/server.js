@@ -10,4 +10,7 @@ app.use(express.static(__dirname + '/public'));
 const notesRoute = require('./routes/notes.route');
 app.use('/notes', notesRoute);
 
+const containersRoute = require('./routes/containers.route');
+app.use('/containers', containersRoute);
+
 app.listen(port, () => console.log('App hosted on port:', port))
