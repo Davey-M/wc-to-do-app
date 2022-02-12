@@ -48,6 +48,13 @@ main {
 	gap: 1rem;
 }
 
+/* Notes */
+.note {
+	padding: 0.5rem;
+	margin: 1rem;
+	box-shadow: 0rem 0.2rem 0.3rem var(--shadow);
+}
+
 /* Note left panel section */
 .left-panel {
 	display: grid;
