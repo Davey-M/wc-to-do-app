@@ -17,7 +17,7 @@ VALUES
 
 CREATE TABLE "containers" (
     "id" SERIAL PRIMARY KEY,
-    "name" VARCHAR(255) NOT NULL,
+    "name" VARCHAR(255) NOT NULL
 );
 
 INSERT INTO "containers" ("name")
