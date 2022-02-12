@@ -43,7 +43,7 @@ header img {
 
 main {
 	display: grid;
-	grid-template-columns: max-content 1fr;
+	grid-template-columns: 1fr 1fr;
 	padding: 1rem;
 	gap: 1rem;
 }
