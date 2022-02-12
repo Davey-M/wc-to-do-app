@@ -19,4 +19,26 @@ router.get('/', (req, res) => {
         })
 })
 
+router.post('/', (req, res) => {
+
+    const queryString = `
+        INSERT INTO "notes" ("text", "completed", "container")
+        VALUES
+            ($1, false, 0);
+    `
+
+    const queryOptions = [
+        req.body.text,
+    ]
+
+    pool.query(queryString, queryOptions)
+        .then(response => {
+            res.sendStatus(201);
+        })
+        .catch(err => {
+            console.error('Error with post to notes:', err);
+            res.sendStatus(500);
+        })
+})
+
 module.exports = router;
