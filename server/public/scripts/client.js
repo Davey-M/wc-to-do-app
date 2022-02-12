@@ -6,6 +6,8 @@ function main() {
     getContainers();
 
     $('#form-new-note').on('submit', addNote);
+
+    $('#form-new-container').on('submit', addContainer);
 }
 
 // GLOBAL VARIABLE DECLARATIONS ------------------------------------------------
