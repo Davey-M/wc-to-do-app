@@ -2,12 +2,47 @@ $(main)
 
 // runs when the DOM is fully loaded
 function main() {
-    getNotes();
+    // get container and get notes will always be run together
+    getContainers();
 }
 
 // GLOBAL VARIABLE DECLARATIONS ------------------------------------------------
-const containers = [];
 // GLOBAL VARIABLE DECLARATIONS ------------------------------------------------
+
+// get containers from server
+function getContainers() {
+    
+    let options = {
+        method: 'GET',
+        url: '/containers',
+    }
+
+    $.ajax(options)
+        .then(response => {
+            console.log(response.rows);
+            renderContainers(response.rows);
+            getNotes();
+        })
+}
+
+function renderContainers(containers) {
+
+    $('#inner-container-container').empty();
+
+    for (let container of containers) {
+
+        let { name, id } = container;
+
+        $('#inner-container-container').append(`
+            <div class="container" data-id="${id}" >
+                <h1>${name}</h1>
+                <div class="note-container" id="con-${id}">
+
+                </div>
+            </div>
+        `)
+    }
+}
 
 // get notes from server
 function getNotes() {
@@ -30,40 +65,28 @@ function getNotes() {
 function renderNotes(notes) {
     console.log(notes);
 
-    // used for validation when trying to add containers later
-    for (let container of containers) {
-        $(`#con-${container}`).empty();
-    }
+    $('#staging-notes').empty();
 
-    // loop through the notes
     for (let note of notes) {
-        // destructuring
+
         let { container, text, completed } = note;
 
-        // spaces break the ids. no notes will be added if there are spaces in the containers id
-        let containerId = container.split(' ').join('-');
-
-        // create a container if one does not already exist on the dom
-        if (!containers.includes(containerId)) {
-            containers.push(containerId);
-            // the note-container id in this block breaks with spaces in the containerId
-            $('#inner-container-container').append(`
-                <div class="container">
-                    <h1>${container}</h1>
-                    <div class="note-container" id="con-${containerId}">
-
-                    </div>
+        if ($(`#con-${container}`).length > 0) {
+            $(`#con-${container}`).append(`
+                <div class="note">
+                    <p>${text}</p>
+                    <label for="completed">Complete</label>
+                    <input type="checkbox" name="completed" ${completed ? 'checked' : ''}>
                 </div>
-            `)
-        }
-
-        // load the note into the dom
-        $(`#con-${containerId}`).append(`
+            `);
+        } else {
+            $(`#staging-notes`).append(`
             <div class="note">
                 <p>${text}</p>
                 <label for="completed">Complete</label>
                 <input type="checkbox" name="completed" ${completed ? 'checked' : ''}>
             </div>
-        `)
+        `);
+        }
     }
 }
