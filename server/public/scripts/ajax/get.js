@@ -60,12 +60,14 @@ function getNotes() {
 function renderNotes(notes) {
     // console.log(notes);
 
+    // this is the only note container that was not removed and re-added in getContainers
     $('#staging-notes').empty();
 
     for (let note of notes) {
 
         let { container, text, completed, id } = note;
 
+        // check if the notes container has been deleted and render it in the staging area if true
         if ($(`#con-${container}`).length > 0) {
             $(`#con-${container}`).append(`
                 <div class="note ${completed ? 'completed' : ''}" data-id="${id}" data-container="${container}" data-completed="${completed}">
