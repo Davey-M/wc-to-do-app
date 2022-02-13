@@ -4,15 +4,20 @@ function moveDummyNote(e) {
     // this function is called in client.js
     $('#dummy-note').css('left', e.x);
     $('#dummy-note').css('top', e.y);
+
+    if (moving) {
+        moving.css('opacity', 0);
+        $('#dummy-note').css('opacity', 1);
+    }
 }
 
 function startMove(e) {
     e.preventDefault();
 
     $('#dummy-note > p').text($(this).children()[0].textContent);
-    $(this).css('opacity', 0);
+    // $(this).css('opacity', 0);
 
-    $('#dummy-note').css('opacity', 1);
+    // $('#dummy-note').css('opacity', 1);
 
     moving = $(this);
 }
@@ -28,9 +33,11 @@ function endMove(e) {
         let noteContainer = moving.data().container;
         let containerId = $(this).data().id;
 
-        console.log({ noteContainer, containerId })
+        // console.log({ noteContainer, containerId })
 
-        $(this).attr('class', 'container');
+        if ($(this).attr('class') === 'container hovering') {
+            $(this).attr('class', 'container');
+        }
 
         if (noteContainer === containerId) return;
 

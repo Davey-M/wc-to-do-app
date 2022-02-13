@@ -15,6 +15,8 @@ function main() {
 
     $(document).on('mouseup', '.container', endMove); // cardMovement.js
 
+    $('#staging-notes').on('mouseup', endMove); //cardMovement.js
+
     $(document).on('mouseup', cancelMove); // cardMovement.js
 
     $('#inner-container-container').on('mouseenter', '.container', setBackground); // cardMovement.js
