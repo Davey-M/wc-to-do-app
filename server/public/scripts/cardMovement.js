@@ -17,6 +17,12 @@ function startMove(e) {
     $('#dummy-note > p').text($(this).children()[0].textContent);
     // $(this).css('opacity', 0);
 
+    let noteCompleted = $(this).data().completed;
+    if (noteCompleted) {
+        $('#dummy-note').attr('class', 'note completed');
+        $('#dummy-completed').text('Undo Complete');
+    }
+
     // $('#dummy-note').css('opacity', 1);
 
     moving = $(this);
@@ -68,6 +74,8 @@ function cancelMove(e) {
     moving = false;
 
     $('#dummy-note').css('opacity', 0);
+    $('#dummy-note').attr('class', 'note');
+    $('#dummy-completed').text('Complete');
 }
 
 function setBackground() {
