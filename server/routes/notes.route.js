@@ -41,6 +41,24 @@ router.post('/', (req, res) => {
         })
 })
 
+router.delete('/:id', (req, res) => {
+
+    const id = req.params.id;
+
+    const queryString = `DELETE FROM "notes" WHERE "id" = $1`
+
+    const queryOptions = [ id ];
+
+    pool.query(queryString, queryOptions)
+        .then(response => {
+            res.sendStatus(200);
+        })
+        .catch(err => {
+            console.error('Error deleting note:', err);
+            res.sendStatus(500);
+        })
+})
+
 router.put('/:id', (req, res) => {
     let id = req.params.id;
 

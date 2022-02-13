@@ -21,4 +21,7 @@ function main() {
 
     $('#inner-container-container').on('mouseenter', '.container', setBackground); // cardMovement.js
     $('#inner-container-container').on('mouseleave', '.container', removeBackground); // cardMovement.js
+
+    // delete listeners
+    $('main').on('click', '.btn-note-delete', deleteNote);
 }
