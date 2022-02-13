@@ -19,6 +19,7 @@ function main() {
 
     $(document).on('mouseup', cancelMove); // cardMovement.js
 
+    // change container background color
     $('main').on('mouseenter', '.container', setBackground); // cardMovement.js
     $('main').on('mouseleave', '.container', removeBackground); // cardMovement.js
 
