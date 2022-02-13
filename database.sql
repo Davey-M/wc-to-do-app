@@ -3,7 +3,7 @@
 -- notes database
 CREATE TABLE "notes" (
     "id" SERIAL PRIMARY KEY,
-    "text" VARCHAR(255) NOT NULL,
+    "text" VARCHAR(1000) NOT NULL,
     "completed" BOOLEAN NOT NULL,
     "container" INTEGER
 );

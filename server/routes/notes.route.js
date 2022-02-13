@@ -45,7 +45,7 @@ router.delete('/:id', (req, res) => {
 
     const id = req.params.id;
 
-    const queryString = `DELETE FROM "notes" WHERE "id" = $1`
+    const queryString = `DELETE FROM "notes" WHERE "id" = $1;`
 
     const queryOptions = [ id ];
 
@@ -65,7 +65,7 @@ router.put('/:id', (req, res) => {
     let containerId = req.body.id;
 
     const queryString = `
-        UPDATE "notes" SET "container" = $2 WHERE "id" = $1
+        UPDATE "notes" SET "container" = $2 WHERE "id" = $1;
     `
 
     const queryOptions = [
