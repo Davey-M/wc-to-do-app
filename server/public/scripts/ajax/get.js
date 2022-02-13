@@ -8,20 +8,23 @@ function getContainers() {
 
     $.ajax(options)
         .then(response => {
-            // console.log(response.rows);
+            // console.log(response.rows); // test
             renderContainers(response.rows);
+            // Add containers to dom before getting notes from the database
             getNotes();
         })
 }
 
 function renderContainers(containers) {
 
+    // clear old containers
     $('#inner-container-container').empty();
 
     for (let container of containers) {
 
         let { name, id } = container;
 
+        // insert containers onto the dom
         $('#inner-container-container').append(`
             <div class="container" data-id="${id}" >
                 <h1>${name}</h1>
@@ -45,6 +48,8 @@ function getNotes() {
     $.ajax(options)
         .then(response => {
             // notes need to be rendered after being received from the server
+
+            // render notes inside containers
             renderNotes(response.rows);
         })
         .catch(err => {
