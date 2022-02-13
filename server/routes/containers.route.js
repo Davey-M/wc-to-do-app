@@ -5,7 +5,7 @@ const pool = require('../modules/pool');
 
 router.get('/', (req, res) => {
 
-    const queryString = 'SELECT * FROM "containers" ORDER BY "id" ASC';
+    const queryString = 'SELECT * FROM "containers" ORDER BY "id" ASC;';
 
     pool.query(queryString)
         .then(response => {
@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
 
     const queryString = `
         INSERT INTO "containers" ("name")
-        VALUES ($1)
+        VALUES ($1);
     `
 
     const queryOptions = [ req.body.name ];
@@ -34,6 +34,14 @@ router.post('/', (req, res) => {
             console.error('Error sending data to containers table:', err);
             res.sendStatus(500);
         })
+})
+
+router.delete('/:id', (req, res) => {
+
+    const id = req.params.id;
+
+    const queryString = `DELETE FROM "containers" WHERE "id" = $1;`
+
 })
 
 module.exports = router;
