@@ -18,44 +18,55 @@
     <!-- get ajax -->
     <script src="scripts/ajax/get.js"></script>
 
+    <!-- card movement script -->
+    <script src="scripts/cardMovement.js"></script>
+
     <!-- global application management -->
     <script src="scripts/client.js"></script>
 
     <title>To Do App</title>
 </head>
 <body>
-    <header>
-        <h1>Weekend Challenge To Do App</h1>
-        <img src="" alt="logo">
-    </header>
-    <main>
-        <div class="left-panel">
-            <form id="form-new-note">
-                <textarea id="note-creator" name="note-creator" id="" cols="30" rows="10" placeholder="New Note"></textarea>
-                <button id="btn-new-note">Add</button>
-            </form>
+    <div class="note" id="dummy-note">
+        <p>dummy note</p>
+        <label for="completed">Complete</label>
+        <input type="checkbox" name="completed">
+    </div>
+    <!-- Dummy note above -->
+    <div id="body-wrapper">
+        <header>
+            <h1>Weekend Challenge To Do App</h1>
+            <img src="" alt="logo">
+        </header>
+        <main>
+            <div class="left-panel">
+                <form id="form-new-note">
+                    <textarea id="note-creator" name="note-creator" id="" cols="30" rows="10" placeholder="New Note"></textarea>
+                    <button id="btn-new-note">Add</button>
+                </form>
+        
+                <div id="staging-area">
+                    <h1>Staging Area</h1>
+                    <div id="staging-notes"></div>
+                </div>
+            </div>
     
-            <div id="staging-area">
-                <h1>Staging Area</h1>
-                <div id="staging-notes"></div>
+            <div id="container-container">
+                <div id="inner-container-container">
+                    <!-- This is a sample container -->
+                    <!-- <div class="container">
+                        <h1>Container Name</h1>
+                        <div class="note-container">
+    
+                        </div>
+                    </div> -->
+                </div>
+                <form id="form-new-container">
+                    <input id="name-input" type="text" placeholder="New Container Name">
+                    <button>Add Container</button>
+                </form>
             </div>
-        </div>
-
-        <div id="container-container">
-            <div id="inner-container-container">
-                <!-- This is a sample container -->
-                <!-- <div class="container">
-                    <h1>Container Name</h1>
-                    <div class="note-container">
-
-                    </div>
-                </div> -->
-            </div>
-            <form id="form-new-container">
-                <input id="name-input" type="text" placeholder="New Container Name">
-                <button>Add Container</button>
-            </form>
-        </div>
-    </main>
+        </main>
+    </div>
 </body>
 </html>

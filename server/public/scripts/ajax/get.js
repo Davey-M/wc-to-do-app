@@ -70,12 +70,12 @@ function renderNotes(notes) {
             `);
         } else {
             $(`#staging-notes`).append(`
-            <div class="note">
-                <p>${text}</p>
-                <label for="completed">Complete</label>
-                <input type="checkbox" name="completed" ${completed ? 'checked' : ''}>
-            </div>
-        `);
+                <div class="note">
+                    <p>${text}</p>
+                    <label for="completed">Complete</label>
+                    <input type="checkbox" name="completed" ${completed ? 'checked' : ''}>
+                </div>
+            `);
         }
     }
 }

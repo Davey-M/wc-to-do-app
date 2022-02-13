@@ -5,10 +5,9 @@ function main() {
     // get container and get notes will always be run together
     getContainers();
 
-    $('#form-new-note').on('submit', addNote);
+    $('#form-new-note').on('submit', addNote); // submitNote.js
 
-    $('#form-new-container').on('submit', addContainer);
+    $('#form-new-container').on('submit', addContainer); // newContainer.js
+
+    window.addEventListener('mousemove', moveDummyNote); // cardMovement.js
 }
-
-// GLOBAL VARIABLE DECLARATIONS ------------------------------------------------
-// GLOBAL VARIABLE DECLARATIONS ------------------------------------------------
