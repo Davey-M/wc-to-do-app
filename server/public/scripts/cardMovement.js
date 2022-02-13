@@ -23,10 +23,27 @@ function endMove(e) {
 
         console.log($(this));
         console.log(moving);
-
-        moving.css('opacity', 1);
-    
-        moving = false;
+        $(this).attr('class', 'container');
     }
+}
+
+function cancelMove(e) {
+
+    if (moving) {
+        moving.css('opacity', 1);
+    }
+    
+    moving = false;
+
     $('#dummy-note').css('opacity', 0);
+}
+
+function setBackground() {
+    if (moving) {
+        $(this).attr('class', 'container hovering');
+    }
+}
+
+function removeBackground() {
+    $(this).attr('class', 'container');
 }
