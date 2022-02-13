@@ -58,11 +58,11 @@ function renderNotes(notes) {
 
     for (let note of notes) {
 
-        let { container, text, completed } = note;
+        let { container, text, completed, id } = note;
 
         if ($(`#con-${container}`).length > 0) {
             $(`#con-${container}`).append(`
-                <div class="note">
+                <div class="note" data-id="${id}">
                     <p>${text}</p>
                     <label for="completed">Complete</label>
                     <input type="checkbox" name="completed" ${completed ? 'checked' : ''}>
@@ -70,7 +70,7 @@ function renderNotes(notes) {
             `);
         } else {
             $(`#staging-notes`).append(`
-                <div class="note">
+                <div class="note" data-id="${id}">
                     <p>${text}</p>
                     <label for="completed">Complete</label>
                     <input type="checkbox" name="completed" ${completed ? 'checked' : ''}>

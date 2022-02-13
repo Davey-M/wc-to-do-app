@@ -122,7 +122,7 @@ button:hover {
 
 /* dummy note */
 #dummy-note {
-	width: 300px;
+	width: 40%;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -130,5 +130,5 @@ button:hover {
 	margin: 0;
 	transform: translate(-50%, -50%);
 	pointer-events: none;
-	opacity: 0.3;
+	opacity: 0;
 }

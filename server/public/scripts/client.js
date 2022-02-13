@@ -10,4 +10,8 @@ function main() {
     $('#form-new-container').on('submit', addContainer); // newContainer.js
 
     window.addEventListener('mousemove', moveDummyNote); // cardMovement.js
+
+    $('main').on('mousedown', '.note', startMove); // cardMovement.js
+
+    $(document).on('mouseup', '.container', endMove); // cardMovement.js
 }
