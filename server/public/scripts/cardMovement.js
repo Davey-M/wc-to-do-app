@@ -21,9 +21,34 @@ function endMove(e) {
     if (moving) {
         e.preventDefault();
 
-        console.log($(this));
-        console.log(moving);
+        // console.log($(this));
+        // console.log(moving);
+
+        let noteId = moving.data().id;
+        let noteContainer = moving.data().container;
+        let containerId = $(this).data().id;
+
+        console.log({ noteContainer, containerId })
+
         $(this).attr('class', 'container');
+
+        if (noteContainer === containerId) return;
+
+        let options = {
+            method: 'PUT',
+            url: `/notes/${noteId}`,
+            data: {
+                id: containerId,
+            }
+        }
+
+        $.ajax(options)
+            .then(response => {
+                getContainers();
+            })
+            .catch(err => {
+                console.error(err);
+            })
     }
 }
 
