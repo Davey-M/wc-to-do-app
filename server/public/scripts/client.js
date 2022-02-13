@@ -13,16 +13,19 @@ function main() {
 
     $('main').on('mousedown', '.note', startMove); // cardMovement.js
 
-    $(document).on('mouseup', '.container', endMove); // cardMovement.js
+    $('main').on('mouseup', '.container', endMove); // cardMovement.js
 
     // $('#staging-notes').on('mouseup', endMove); //cardMovement.js
 
     $(document).on('mouseup', cancelMove); // cardMovement.js
 
-    $('#inner-container-container').on('mouseenter', '.container', setBackground); // cardMovement.js
-    $('#inner-container-container').on('mouseleave', '.container', removeBackground); // cardMovement.js
+    $('main').on('mouseenter', '.container', setBackground); // cardMovement.js
+    $('main').on('mouseleave', '.container', removeBackground); // cardMovement.js
 
     // delete listeners - delete.js
     $('main').on('click', '.btn-note-delete', deleteNote);
     $('main').on('click', '.btn-container-delete', deleteContainer);
+
+    // update completed status - submitNote.js
+    $('main').on('click', '.btn-note-complete', changeCompleted);
 }

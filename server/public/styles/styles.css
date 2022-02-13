@@ -30,6 +30,9 @@ p {
 	--button-hover: #b6b6b6;
 	--shadow: #00000050;
 	--hovering: #ffd1a6;
+	--white: white;
+	--completed: #d8d8d8;
+	--completed-text: #969696;
 }
 
 header {
@@ -54,12 +57,14 @@ main {
 
 /* Notes */
 .note {
+	background-color: var(--white);
 	padding: 1rem;
 	margin: 1rem;
 	box-shadow: 0rem 0.2rem 0.3rem var(--shadow);
 	display: flex;
 	justify-content: space-between;
 	/* align-items: center; */
+	transition: all 0.2s;
 }
 
 .note-buttons {
@@ -68,6 +73,19 @@ main {
 	justify-content: flex-start;
 	align-items: flex-end;
 	gap: 0.5rem;
+}
+
+.completed {
+	background-color: var(--completed);
+	color: var(--completed-text);
+}
+
+.completed p {
+	text-decoration: line-through;
+}
+
+.completed button {
+	opacity: 0.5;
 }
 
 /* .note-buttons button {
@@ -153,7 +171,6 @@ button:hover {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: white;
 	margin: 0;
 	transform: translate(-50%, -50%);
 	pointer-events: none;

@@ -17,6 +17,12 @@ function startMove(e) {
     $('#dummy-note > p').text($(this).children()[0].textContent);
     // $(this).css('opacity', 0);
 
+    let noteCompleted = $(this).data().completed;
+    if (noteCompleted) {
+        $('#dummy-note').attr('class', 'note completed');
+        $('#dummy-completed').text('Undo Complete');
+    }
+
     // $('#dummy-note').css('opacity', 1);
 
     moving = $(this);
@@ -31,6 +37,7 @@ function endMove(e) {
 
         let noteId = moving.data().id;
         let noteContainer = moving.data().container;
+        let noteCompleted = moving.data().completed;
         let containerId = $(this).data().id;
 
         // console.log({ noteContainer, containerId })
@@ -41,21 +48,27 @@ function endMove(e) {
 
         if (noteContainer === containerId) return;
 
-        let options = {
-            method: 'PUT',
-            url: `/notes/${noteId}`,
-            data: {
-                id: containerId,
-            }
-        }
+        // let options = {
+        //     method: 'PUT',
+        //     url: `/notes/${noteId}`,
+        //     data: {
+        //         id: containerId,
+        //     }
+        // }
 
-        $.ajax(options)
-            .then(response => {
-                getContainers();
-            })
-            .catch(err => {
-                console.error(err);
-            })
+        // $.ajax(options)
+        //     .then(response => {
+        //         getContainers();
+        //     })
+        //     .catch(err => {
+        //         console.error(err);
+        //     })
+
+        updateNote({ 
+            id: noteId, 
+            completed: noteCompleted, 
+            container: containerId 
+        });
     }
 }
 
@@ -68,6 +81,8 @@ function cancelMove(e) {
     moving = false;
 
     $('#dummy-note').css('opacity', 0);
+    $('#dummy-note').attr('class', 'note');
+    $('#dummy-completed').text('Complete');
 }
 
 function setBackground() {
