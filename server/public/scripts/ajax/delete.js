@@ -3,11 +3,13 @@ function deleteNote() {
 
     console.log(id);
 
+    // make sure the user didn't accidentally click the button
     let userResponse = confirm('This note will be permanently deleted.');
     if (userResponse === false) {
         return;
     }
 
+    // send delete request to database
     const options = {
         method: 'DELETE',
         url: `/notes/${id}`,
@@ -15,7 +17,8 @@ function deleteNote() {
 
     $.ajax(options)
         .then(response => {
-            getContainers();
+            // getContainers runs getNotes when it is finished
+            getContainers(); // get.js
         })
         .catch(err => {
             console.error(err);
@@ -27,6 +30,7 @@ function deleteContainer() {
 
     console.log(id);
 
+    // make sure the user didn't accidentally click the button
     let userResponse = confirm('This container will be permanently deleted.');
     if (userResponse === false) {
         return;
@@ -39,7 +43,7 @@ function deleteContainer() {
 
     $.ajax(options)
         .then(response => {
-            getContainers();
+            getContainers(); // get.js
         })
         .catch(err => {
             console.error(err);

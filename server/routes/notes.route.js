@@ -21,16 +21,20 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
 
+    // all notes start uncompleted
+    // container 0 is the staging area
     const queryString = `
         INSERT INTO "notes" ("text", "completed", "container")
         VALUES
             ($1, false, 0);
     `
 
+    // Send the note text to the database
     const queryOptions = [
         req.body.text,
     ]
 
+    // query the database
     pool.query(queryString, queryOptions)
         .then(response => {
             res.sendStatus(201);
@@ -43,6 +47,7 @@ router.post('/', (req, res) => {
 
 router.delete('/:id', (req, res) => {
 
+    // which note are we deleting
     const id = req.params.id;
 
     const queryString = `DELETE FROM "notes" WHERE "id" = $1;`
@@ -60,8 +65,11 @@ router.delete('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
+    
+    // which note are we updating
     let id = req.params.id;
 
+    // users can only update the notes container and completed status
     let containerId = req.body.id;
     let noteCompleted = req.body.completed;
 
