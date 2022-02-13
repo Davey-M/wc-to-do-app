@@ -47,7 +47,7 @@ To run the application on your local machine follow these steps:
 - Sweet Alerts
 
 ## Acknowledgement
-Thanks to [Prime Digital Academy](www.primeacademy.io). Also a huge thanks to [Sweet Alerts](https://sweetalert.js.org/) who created the beautiful popup windows in this application.
+Thanks to [Prime Digital Academy](https://www.primeacademy.io/). Also a huge thanks to [Sweet Alerts](https://sweetalert.js.org/) who created the beautiful popup windows in this application.
 
 ## Support
 If you have suggestions or issues, please email me at [davey.meuer@gmail.com](mailto:davey.meuer@gmail.com)
