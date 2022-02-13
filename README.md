@@ -10,7 +10,7 @@ The Weekend Challenge To Do App is a lightweight note talking and organizing app
 
 ![App Screenshot](/images/todo-app-screenshot.png)
 
-![App Demo GIF](/images/todo-app-demo.gif)
+![App Demo GIF](/images/todo-app-demo-1.gif)
 
 ### Prerequisites
 
