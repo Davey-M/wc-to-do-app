@@ -5,7 +5,7 @@ const pool = require('../modules/pool');
 
 router.get('/', (req, res) => {
 
-    const queryString = 'SELECT * FROM "containers" ORDER BY "name" ASC';
+    const queryString = 'SELECT * FROM "containers" ORDER BY "id" ASC';
 
     pool.query(queryString)
         .then(response => {
