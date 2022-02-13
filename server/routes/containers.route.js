@@ -42,6 +42,16 @@ router.delete('/:id', (req, res) => {
 
     const queryString = `DELETE FROM "containers" WHERE "id" = $1;`
 
+    const queryOptions = [ id ];
+
+    pool.query(queryString, queryOptions)
+        .then(response => {
+            res.sendStatus(200);
+        })
+        .catch(err => {
+            console.error('Error deleting container:', err);
+            res.sendStatus(500);
+        })
 })
 
 module.exports = router;
