@@ -1,5 +1,9 @@
 let moving = false;
 
+// once a note is clicked the dummy note will only appear after the user holds the mouse button for the pause time 
+let pauseTime;
+let pauseLength = 100;
+
 function moveDummyNote(e) {
     
     // the dummy note sticks to the cursor
@@ -10,7 +14,7 @@ function moveDummyNote(e) {
     // the dummy note should only be visible when the cursor begins to move
     // this fixes issues with notes flashing when their buttons are clicked
     // the moving note is set to be invisible when the dummy note is visible
-    if (moving) {
+    if (moving && Date.now() - pauseTime > pauseLength) {
         moving.css('opacity', 0);
         $('#dummy-note').css('opacity', 1);
     }
@@ -19,6 +23,8 @@ function moveDummyNote(e) {
 // this function runs then the user clicks on a card
 function startMove(e) {
     e.preventDefault();
+
+    pauseTime = Date.now();
 
     // dummy note is what the user sees when dragging the note around on the page
     $('#dummy-note > p').text($(this).children()[0].textContent);
