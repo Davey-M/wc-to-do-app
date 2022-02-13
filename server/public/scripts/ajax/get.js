@@ -8,7 +8,7 @@ function getContainers() {
 
     $.ajax(options)
         .then(response => {
-            console.log(response.rows);
+            // console.log(response.rows);
             renderContainers(response.rows);
             getNotes();
         })
@@ -53,7 +53,7 @@ function getNotes() {
 }
 
 function renderNotes(notes) {
-    console.log(notes);
+    // console.log(notes);
 
     $('#staging-notes').empty();
 
