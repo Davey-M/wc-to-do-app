@@ -6,18 +6,16 @@ _Duration: 2.5 Days_
 
 The Weekend Challenge To Do App is a lightweight note talking and organizing app. It was created for the Full Stack Engineering course at Prime Digital Academy. We were tasked to create a to do app in a weekend that would store our notes on a database and give the user a simple interface for interacting with them.
 
-## Screen Shot
+## Screen Shots
 
 ![App Screenshot](/images/todo-app-screenshot.png)
 
-Include one or two screen shots of your project here (optional). Remove if unused.
+![App Demo GIF](/images/todo-app-demo.gif)
 
 ### Prerequisites
 
-Link to software that is required to install the app (e.g. node).
-
 - [Node.js](https://nodejs.org/en/)
-- List other prerequisites here
+- [Postgresql]()
 
 ## Installation
 
