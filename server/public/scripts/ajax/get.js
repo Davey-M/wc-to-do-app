@@ -25,6 +25,8 @@ function renderContainers(containers) {
         $('#inner-container-container').append(`
             <div class="container" data-id="${id}" >
                 <h1>${name}</h1>
+                <button>Edit</button>
+                <button>Delete</button>
                 <div class="note-container" id="con-${id}">
 
                 </div>
@@ -62,18 +64,18 @@ function renderNotes(notes) {
 
         if ($(`#con-${container}`).length > 0) {
             $(`#con-${container}`).append(`
-                <div class="note" data-id="${id}" data-container="${container}">
+                <div class="note" data-id="${id}" data-container="${container}" data-completed="${completed}">
                     <p>${text}</p>
-                    <label for="completed">Complete</label>
-                    <input type="checkbox" name="completed" ${completed ? 'checked' : ''}>
+                    <button>Complete</button>
+                    <button>Delete</button>
                 </div>
             `);
         } else {
             $(`#staging-notes`).append(`
-                <div class="note" data-id="${id}" data-container="${container}">
+                <div class="note" data-id="${id}" data-container="${container}" data-completed="${completed}">
                     <p>${text}</p>
-                    <label for="completed">Complete</label>
-                    <input type="checkbox" name="completed" ${completed ? 'checked' : ''}>
+                    <button>Complete</button>
+                    <button>Delete</button>
                 </div>
             `);
         }
