@@ -63,20 +63,28 @@ function renderNotes(notes) {
 
         if ($(`#con-${container}`).length > 0) {
             $(`#con-${container}`).append(`
-                <div class="note" data-id="${id}" data-container="${container}" data-completed="${completed}">
+                <div class="note ${completed ? 'completed' : ''}" data-id="${id}" data-container="${container}" data-completed="${completed}">
                     <p>${text}</p>
                     <div class="note-buttons">
-                        <button class="btn-note-complete" >Complete</button>
+                        ${completed ? 
+                            '<button class="btn-note-complete" >Undo Complete</button>'
+                            :
+                            '<button class="btn-note-complete" >Complete</button>'
+                        }
                         <button class="btn-note-delete" >Delete</button>
                     </div>
                 </div>
             `);
         } else {
             $(`#staging-notes`).append(`
-                <div class="note" data-id="${id}" data-container="0" data-completed="${completed}">
+                <div class="note ${completed ? 'completed' : ''}" data-id="${id}" data-container="0" data-completed="${completed}">
                     <p>${text}</p>
                     <div class="note-buttons">
-                        <button class="btn-note-complete" >Complete</button>
+                        ${completed ? 
+                            '<button class="btn-note-complete" >Undo Complete</button>'
+                            :
+                            '<button class="btn-note-complete" >Complete</button>'
+                        }
                         <button class="btn-note-delete" >Delete</button>
                     </div>
                 </div>
