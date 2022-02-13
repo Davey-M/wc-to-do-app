@@ -41,4 +41,28 @@ router.post('/', (req, res) => {
         })
 })
 
+router.put('/:id', (req, res) => {
+    let id = req.params.id;
+
+    let containerId = req.body.id;
+
+    const queryString = `
+        UPDATE "notes" SET "container" = $2 WHERE "id" = $1
+    `
+
+    const queryOptions = [
+        id,
+        containerId,
+    ]
+
+    pool.query(queryString, queryOptions)
+        .then(response => {
+            res.sendStatus(200);
+        })
+        .catch(err => {
+            console.error('Error updating note:', err);
+            res.sendStatus(500);
+        })
+})
+
 module.exports = router;
