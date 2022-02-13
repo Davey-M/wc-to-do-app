@@ -25,8 +25,7 @@ function renderContainers(containers) {
         $('#inner-container-container').append(`
             <div class="container" data-id="${id}" >
                 <h1>${name}</h1>
-                <button>Edit</button>
-                <button>Delete</button>
+                <button class="btn-container-delete" >Delete</button>
                 <div class="note-container" id="con-${id}">
 
                 </div>
@@ -66,16 +65,20 @@ function renderNotes(notes) {
             $(`#con-${container}`).append(`
                 <div class="note" data-id="${id}" data-container="${container}" data-completed="${completed}">
                     <p>${text}</p>
-                    <button>Complete</button>
-                    <button>Delete</button>
+                    <div class="note-buttons">
+                        <button class="btn-note-complete" >Complete</button>
+                        <button class="btn-note-delete" >Delete</button>
+                    </div>
                 </div>
             `);
         } else {
             $(`#staging-notes`).append(`
-                <div class="note" data-id="${id}" data-container="${container}" data-completed="${completed}">
+                <div class="note" data-id="${id}" data-container="0" data-completed="${completed}">
                     <p>${text}</p>
-                    <button>Complete</button>
-                    <button>Delete</button>
+                    <div class="note-buttons">
+                        <button class="btn-note-complete" >Complete</button>
+                        <button class="btn-note-delete" >Delete</button>
+                    </div>
                 </div>
             `);
         }
