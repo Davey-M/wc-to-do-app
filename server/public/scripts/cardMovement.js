@@ -37,6 +37,7 @@ function endMove(e) {
 
         let noteId = moving.data().id;
         let noteContainer = moving.data().container;
+        let noteCompleted = moving.data().completed;
         let containerId = $(this).data().id;
 
         // console.log({ noteContainer, containerId })
@@ -47,21 +48,27 @@ function endMove(e) {
 
         if (noteContainer === containerId) return;
 
-        let options = {
-            method: 'PUT',
-            url: `/notes/${noteId}`,
-            data: {
-                id: containerId,
-            }
-        }
+        // let options = {
+        //     method: 'PUT',
+        //     url: `/notes/${noteId}`,
+        //     data: {
+        //         id: containerId,
+        //     }
+        // }
 
-        $.ajax(options)
-            .then(response => {
-                getContainers();
-            })
-            .catch(err => {
-                console.error(err);
-            })
+        // $.ajax(options)
+        //     .then(response => {
+        //         getContainers();
+        //     })
+        //     .catch(err => {
+        //         console.error(err);
+        //     })
+
+        updateNote({ 
+            id: noteId, 
+            completed: noteCompleted, 
+            container: containerId 
+        });
     }
 }
 

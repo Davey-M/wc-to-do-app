@@ -63,14 +63,16 @@ router.put('/:id', (req, res) => {
     let id = req.params.id;
 
     let containerId = req.body.id;
+    let noteCompleted = req.body.completed;
 
     const queryString = `
-        UPDATE "notes" SET "container" = $2 WHERE "id" = $1;
+        UPDATE "notes" SET "container" = $2, "completed" = $3 WHERE "id" = $1;
     `
 
     const queryOptions = [
         id,
         containerId,
+        noteCompleted,
     ]
 
     pool.query(queryString, queryOptions)

@@ -25,4 +25,7 @@ function main() {
     // delete listeners - delete.js
     $('main').on('click', '.btn-note-delete', deleteNote);
     $('main').on('click', '.btn-container-delete', deleteContainer);
+
+    // update completed status - submitNote.js
+    $('main').on('click', '.btn-note-complete', changeCompleted);
 }
